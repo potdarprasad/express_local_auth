@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Note - <%-note.title%></title>
+    <%- include('../partials/head')%>
+</head>
+
+<body>
+
+    <div class="mx-auto my-5 col-8 border p-3">
+        <h4 class="text-warning text-center">Edit Note</h4>
+        <form method="post" action="/notes/edit/<%-note.id%>">
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="title"
+                    value="<%-note.title%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" name="description" id="description" placeholder="description"
+                    value="<%-note.description%>">
+            </div>
+
+            <input type="submit" class="btn btn-warning" value="Update Note" />
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notes</title>
+    <%- include('../partials/head')%>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div  class="text-right">
+            <button type="button" class="btn btn-primary float-end">
+                Large button
+              </button>
+            <!-- <a class="btn btn-success" href="/notes/create">Create Note</a> -->
+        </div>
+
+        <div class="mx-auto mt-5 col-8">
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="text-center bg-primary">
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <%if(notes.length){ for(let index in notes){%>
+                        <tr>
+                            <td><%- parseInt(index) + 1%></td>
+                            <td><%- notes[index].title%></td>
+                            <td><%- notes[index].description%></td>
+                            <td>
+                                <a class="btn btn-warning" href="/notes/edit/<%- notes[index]._id%>">Edit</a>
+                                <a class="btn btn-danger" href="/notes/create">Delete</a>
+                            </td>
+                        </tr>
+                        <%}}else{%>
+                            <tr class="text-center">
+                                <td colspan="4"> No Notes Found.....</td>
+
+                            </tr>
+                            <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
